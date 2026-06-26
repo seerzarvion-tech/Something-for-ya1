@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Something For You</title><style>
+body{margin:0;background:linear-gradient(#090b1a,#1b1033);overflow:hidden;height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial;color:white}
+#card{z-index:2;position:relative;background:rgba(255,255,255,.08);padding:28px;border-radius:20px;text-align:center;max-width:340px}
+button{background:#e63946;color:#fff;border:none;padding:12px 22px;border-radius:30px;font-size:18px}
+.heart{position:fixed;font-size:22px;animation:up linear forwards}
+@keyframes up{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
+#final{opacity:0;transition:1s;font-size:28px;color:#ffd6de}
+</style></head><body>
+<div id="card"><h1>Something for you ❤️</h1><p>Every heart floating here carries something I can't always say.</p>
+<button onclick="burst()">Touch the Heart ❤️</button><div id="final">I just wanna be yours.</div>
+<p style="font-size:12px">To use "Wanna Be Yours", place an MP3 named <b>wanna-be-yours.mp3</b> beside this HTML file.</p>
+<audio id="bg" autoplay loop>
+<source src="wanna-be-yours.mp3" type="audio/mpeg">
+</audio></div>
+<script>
+function heart(){let h=document.createElement('div');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'vw';h.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),9000)}
+setInterval(heart,250);
+function burst(){for(let i=0;i<120;i++)setTimeout(heart,i*15);document.getElementById('final').style.opacity=1;document.getElementById('bg').play().catch(()=>{});}
+</script></body></html>
