@@ -13,7 +13,16 @@ button{background:#e63946;color:#fff;border:none;padding:12px 22px;border-radius
 <source src="wanna-be-yours.mp3" type="audio/mpeg">
 </audio></div>
 <script>
-function heart(){let h=document.createElement('div');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'vw';h.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),9000)}
-setInterval(heart,250);
-function burst(){for(let i=0;i<120;i++)setTimeout(heart,i*15);document.getElementById('final').style.opacity=1;document.getElementById('bg').play().catch(()=>{});}
-</script></body></html>
+function heart(){
+    let h=document.createElement('div');
+    h.className='heart';
+
+    h.innerHTML='<img src="heart.png" class="heartimg">';
+
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=(5+Math.random()*4)+'s';
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),9000);
+}
